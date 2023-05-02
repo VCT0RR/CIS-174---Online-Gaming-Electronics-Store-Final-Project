@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "_Layout";
+
+    var current = ViewContext.RouteData.Values["area"]?.ToString() ?? 
+        ViewContext.RouteData.Values["controller"]!.ToString()!;
+    string controller =
+        ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    string action =
+        ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+}
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">My Gaming Store</a>
+            <button class="navbar-toggler" type="button" 
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" aria-expanded="false" 
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav me-auto">
+                    <a class="nav-item nav-link 
+                      @(controller == "Home" && action == "Index" ? "active" : "")"
+                      asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="nav-item nav-link 
+                      @(controller == "Product" ? "active" : "")"
+                      asp-controller="Products" asp-action="ListView">Products</a>
+                      <a class="nav-item nav-link 
+                      @(controller == "Cart" ? "active" : "")"
+                      asp-controller="Cart" asp-action="Index">Shopping Cart</a>
+                    <a class="nav-item nav-link
+                      @(controller == "Home" && action == "About" ? "active" : "")"
+                      asp-controller="Home" asp-action="AboutUs">About Us</a>
+                      <a class="nav-item nav-link
+                      @(controller == "Home" && action == "Contact" ? "active" : "")"
+                      asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                </div>
+                <div class="navbar-nav navbar-right">
+                    <a class="nav-item nav-link @Nav.Active("Admin", current)" 
+                      asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a>
+                </div>
+            </nav>
+        </div>
+    </nav>
+</header>
+<main>
+    @RenderBody()
+</main>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Admin";
+}
+
+<h1 class="text-center">Admin Home</h1>
+<h1 class="text-center">Admin Home</h1>
+
+<p class="text-center"> Welcome to the Admin Home page. Here, as an admin, you can view, add, update, edit, and delete all 
+    in-store and available items within the Category and Products Pages.</p>
+
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="list-group">
+            <a asp-controller="Category" asp-action="List" 
+               class="list-group-item text-center">Manage Categories</a>
+            <a asp-controller="Products" asp-action="List"
+               class="list-group-item text-center">Manage Products</a>
+        </div>
+    </div>
+</div>

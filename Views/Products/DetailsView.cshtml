@@ -1,0 +1,22 @@
+﻿@model Products
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<h1>Product Details</h1>
+<div class="row">
+
+    <div class="col-sm-8">
+        <h2>@Model.ProductBrand</h2>
+        <h2>@Model.ProductModel</h2>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td>List Price:</td>
+                <td>@Model.ProductPrice.ToString("C")</td>
+            </tr>
+        </table>
+        <a asp-controller="Cart" asp-action="AddToCart"
+            asp-route-id="@Model.Slug" class="btn btn-primary">Add to Cart</a>
+        
+    </div>
+</div>

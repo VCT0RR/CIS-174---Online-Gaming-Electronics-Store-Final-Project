@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="container text-center">
+<h1 class="text-center">Welcome to My Gaming & Electronics Store!</h1>
+<h1 class="text-center">Welcome to My Gaming & Electronics Store!</h1>
+
+<p class="text-center">Here we sell the highest quality gaming laptops, desktops, monitors, and accessories for all your gaming needs!</p>
+
+
+<div class="row justify-content-center">
+    <div class="col-sm-4">
+        <div class="list-group">
+            <a asp-controller="Products" asp-action="ListView"
+               class="list-group-item ">View All Products</a>
+            <a asp-controller="Home" asp-action="AboutUs"
+               class="list-group-item">About Us</a>
+        </div>
+    </div>
+</div>
+</div>
